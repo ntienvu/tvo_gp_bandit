@@ -2,7 +2,7 @@
 """
 Created on Wed Apr  8 10:51:04 2020
 
-@author: Lenovo
+@author: Vu Nguyen
 """
 
 # -*- coding: utf-8 -*-
@@ -110,7 +110,6 @@ class BayesOpt:
         else:
             # time-varying, but not permutation invariant
             self.gp=GPTV(self.scaleSearchSpace,noise_delta=1e-3,verbose=1)
-
 
 
 

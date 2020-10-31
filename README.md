@@ -1,4 +1,4 @@
-# Source code for Gaussian Process Bandit Optimization of the Thermodynamic Variational Objective (TVO)
+# Source code for Gaussian Process Bandit Optimization of the Thermodynamic Variational Objective
 
 This uses [Sacred's](https://sacred.readthedocs.io/en/stable/command_line.html) command line interface. To see Sacred's options run
 
@@ -28,10 +28,3 @@ python main.py with learning_task='continuous_vae' loss=tvo schedule='gp_bandit'
 The TVO loss is computed in [`get_thermo_loss_from_log_weight_log_p_log_q` in `losses.py`](https://github.com/vmasrani/tvo/blob/master/continuous_vae/losses.py#L149-L202). This function is identical to the one found in the discrete_vae directory.
 
 The main training loop is in [`train` in `run.py`](https://github.com/vmasrani/tvo/blob/master/continuous_vae/run.py#138).
-
-
-
-# Reference
-```
-V. Nguyen, V. Masrani, R. Brekelmans, M. A. Osborne, F. Wood.  "Gaussian Process Bandit Optimization of the Thermodynamic Variational Objective". Advances in Neural Information Processing Systems (NeurIPS), 2020.
-```

@@ -85,8 +85,7 @@ def my_config():
     record = False
     record_partition = None #True  # unused.  possibility to std-ize partitions for evaluation
     verbose = False
-    dataset='tiny_mnist'
-    #dataset = 'mnist'
+    dataset = 'mnist'
     #dataset = 'omniglot'
 
     phi_tag = 'encoder'

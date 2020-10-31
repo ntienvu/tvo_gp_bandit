@@ -85,8 +85,7 @@ def my_config():
     record = False
     record_partition = None #True  # unused.  possibility to std-ize partitions for evaluation
     verbose = False
-    dataset='tiny_mnist'
-    #dataset = 'mnist'
+    dataset = 'mnist'
     #dataset = 'omniglot'
 
     phi_tag = 'encoder'
@@ -94,7 +93,7 @@ def my_config():
 
     # Training
     seed = 1
-    epochs = 5000
+    epochs = 10000
     batch_size = 1000  # 1000
     valid_S = 100
     test_S = 5000

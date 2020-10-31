@@ -1,4 +1,7 @@
+import json
+import os
 import pickle
+import uuid
 import warnings
 from pathlib import Path
 from types import SimpleNamespace
@@ -81,12 +84,14 @@ def my_config():
     per_sample = False  # Update schedule for each sample
     per_batch = False
 
+    # bayes quad
+    bq_log_seed_point = -4.0
+
     # Recording
     record = False
     record_partition = None #True  # unused.  possibility to std-ize partitions for evaluation
     verbose = False
-    dataset='tiny_mnist'
-    #dataset = 'mnist'
+    dataset = 'mnist'
     #dataset = 'omniglot'
 
     phi_tag = 'encoder'
@@ -94,7 +99,7 @@ def my_config():
 
     # Training
     seed = 1
-    epochs = 5000
+    epochs = 10000
     batch_size = 1000  # 1000
     valid_S = 100
     test_S = 5000

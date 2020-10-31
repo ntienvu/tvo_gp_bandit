@@ -48,9 +48,9 @@ def extract_X_Y_from_args(SearchSpace,args,T=None):
 
         return np.sort(init_X),None
 
-    if lenY%20==0:
-        strPath="{:s}/save_X_Y_{:s}_S{:d}_K{:d}.p".format(str(args.artifact_dir), args.schedule, args.S, args.K)
-        pickle.dump( [args.X_ori,args.Y_ori], open( strPath, "wb" ) )
+#    if lenY%20==0:
+#        strPath="{:s}/save_X_Y_{:s}_S{:d}_K{:d}.p".format(str(args.artifact_dir), args.schedule, args.S, args.K)
+#        pickle.dump( [args.X_ori,args.Y_ori], open( strPath, "wb" ) )
 
     Y=np.reshape(args.Y_ori[max(0,lenY-T):],(-1,1))
 
@@ -78,7 +78,7 @@ def append_Xori_Yori_from_args(args):
     args.X_ori=np.vstack(( args.X_ori, np.reshape(format_input(args.partition),(1,args.K+1) )))
     args.Y_ori=np.append(args.Y_ori, prev_y)
     prev_X=np.round(args.X_ori[-1],decimals=4)
-    print("X",prev_X,"Y",args.Y_ori[-1])
+    #print("X",prev_X,"Y",args.Y_ori[-1])
 
 
 
@@ -132,7 +132,7 @@ def calculate_BO_points(model,args):
     new_X=np.round(new_X,decimals=4)
 
     new_X = np.append(np.append(0,np.sort(new_X)), 1)
-    print(new_X)
+    #print(new_X)
 
     temp_new_X=np.unique(new_X)
 

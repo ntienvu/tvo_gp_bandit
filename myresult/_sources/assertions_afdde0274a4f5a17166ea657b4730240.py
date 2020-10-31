@@ -62,7 +62,7 @@ def validate_hypers(args):
         assert args.loss in ['tvo','tvo-sleep','wake-sleep', 'wake-wake'], f'{args.loss} not yet implemented for PCGS yet'
 
     if args.schedule != 'log':
-       assert args.loss in ['elbo','tvo', 'tvo-sleep', 'tvo_reparam', 'tvo_smoothed', 'tvo_reparam_iwae'],  f"{args.loss} doesn't require a partition schedule scheme"
+       assert args.loss in ['tvo', 'tvo-sleep', 'tvo_reparam', 'tvo_smoothed', 'tvo_reparam_iwae'],  f"{args.loss} doesn't require a partition schedule scheme"
     if args.learning_task in ['discrete_vae']:
         assert args.dataset in ['binarized_mnist', 'binarized_omniglot'], \
             f" dataset cannot be {args.dataset} with {args.learning_task}"

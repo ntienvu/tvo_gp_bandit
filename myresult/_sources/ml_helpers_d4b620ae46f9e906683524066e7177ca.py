@@ -387,14 +387,14 @@ def detect_cuda(args):
         args.cuda = False
     return args
 
-def is_early_update(epoch,args):
+def is_drip(epoch,args):
 
     if epoch<=args.burn_in or len(args.logtvopx_all)<1 or len(args.average_y)==0 or len(args.Y_ori)==0:
         return False
-    #print("logtvopx[-1]-average_y[-1]",np.round(args.logtvopx_all[-1]-args.average_y[-1],4))
+    print("logtvopx[-1]-average_y[-1]",np.round(args.logtvopx_all[-1]-args.average_y[-1],4))
     if args.logtvopx_all[-1]<0 and (args.logtvopx_all[-1]-args.average_y[-1] )<args.drip_threshold:
         args.len_terminated_epoch=epoch % args.schedule_update_frequency # used to estimate the average logpx_tvo_evidence
-        print("===early update===","logtvopx[-1]-average_y[-1]", np.round(args.logtvopx_all[-1]-args.average_y[-1],4),"drip_threshold",args.drip_threshold)
+        print("===========drip","logtvopx[-1]-average_y[-1]", np.round(args.logtvopx_all[-1]-args.average_y[-1],4),"drip_threshold",args.drip_threshold)
         return True
     args.len_terminated_epoch=0
     return False
@@ -407,7 +407,7 @@ def is_schedule_update_time(epoch, args):
     if args.schedule not in ["gp_bandit", 'moments']:
         return False
 
-    if is_early_update(epoch,args):
+    if is_drip(epoch,args):
         return True
 
     # First epoch, initalize
